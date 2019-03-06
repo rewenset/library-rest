@@ -1,0 +1,1 @@
+library-rest is a project for training myself to write REST API with Golang
