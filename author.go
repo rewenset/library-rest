@@ -1,7 +1,7 @@
 package main
 
 type Author struct {
-	Name string
+	Name string `json:"name"`
 }
 
 type Authors []Author

@@ -29,7 +29,9 @@ func authorIndex(w http.ResponseWriter, r *http.Request) {
 		Author{Name: "Franz Kafka"},
 	}
 
-	json.NewEncoder(w).Encode(authors)
+	if err := json.NewEncoder(w).Encode(authors); err != nil {
+		panic(err)
+	}
 }
 
 func authorShow(w http.ResponseWriter, r *http.Request) {
