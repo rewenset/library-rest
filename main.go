@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -22,7 +23,13 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func authorIndex(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Show all authors")
+	authors := Authors{
+		Author{Name: "Jack London"},
+		Author{Name: "Mark Twain"},
+		Author{Name: "Franz Kafka"},
+	}
+
+	json.NewEncoder(w).Encode(authors)
 }
 
 func authorShow(w http.ResponseWriter, r *http.Request) {
